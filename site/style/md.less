@@ -1,0 +1,80 @@
+/**
+ * Created by xiaogang on 2018/8/1.
+ *  md style
+ */
+.md() {
+  //dom style
+  p {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #5e6d82;
+  }
+
+  h3 {
+    font-size: 22px;
+    margin: 45px 0 15px;
+  }
+
+  h4 {
+    font-size: 20px;
+    margin: 30px 0 5px;
+  }
+
+  //table style
+  table {
+    border-spacing: 0;
+  }
+  table th {
+    background-color: #EFF2F7;
+  }
+
+  table td, table th {
+    text-align: center;
+    border-bottom: 1px solid #eaeefb;
+    padding: 10px;
+    max-width: 250px;
+  }
+
+  //language-style
+  .hljs {
+    padding-top: 24px;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .hljs {
+    //code tag
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #ccc;
+      text-align: right;
+      font-size: 0.75em;
+      padding: 5px 10px 0;
+      line-height: 15px;
+      height: 15px;
+      font-weight: 600;
+    }
+
+    //默认 标识 名称
+    &:before {
+      content: "code"
+    }
+    //标识列表
+    @codeTagList: html, xml, js, javascript, bash, css, less, sass;
+    .mapCodeTagList(@len,@i) when (@i=<@len) {
+      @codeTag: extract(@codeTagList, @i);
+
+      &.@{codeTag}:before {
+        content: "@{codeTag}"
+      }
+
+      .mapCodeTagList(@len, @i+1);
+    }
+
+    .mapCodeTagList(length(@codeTagList), 1);
+
+  }
+
+}

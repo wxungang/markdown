@@ -1,0 +1,153 @@
+/**
+ * Created by xiaogang on 2018/8/1.
+ *
+ */
+@import "./common/base";
+@import "md";
+
+iframe {
+  width: 100%;
+  height: 580px;
+  background-color: #fff;
+
+  //border-width: 0;
+  border: none;
+}
+
+@page-nav-width: 200px;
+.content {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  max-width: 1400px;
+}
+
+.nav {
+  height: 100%;
+  overflow: scroll;
+  width: @page-nav-width;
+  float: left;
+
+  a {
+    font-size: 17px;
+    color: #333;
+    line-height: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: all .3s;
+    font-weight: bold;
+
+    &.item {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+     // padding-left: 24px;
+      color:#666
+    }
+    &.component_name {
+      font-size: 15px;
+      color: #333;
+      //padding-left: 8px;
+      line-height: 26px;
+      margin-top: 10px;
+      &:before{
+        //content:'';
+        //width:2px;
+        //height: 20px;
+        //background-color: #ccc;
+      }
+    }
+    &.active {
+      color: #20a0ff;
+    }
+  }
+
+  .component_group {
+
+  }
+
+}
+
+.page {
+  height: 100%;
+  overflow: scroll;
+  margin-left: @page-nav-width;
+  margin-right: @page-nav-width*2;
+
+  .md();
+}
+
+.demos {
+  height: 100%;
+  width: @page-nav-width*2;
+  float: right;
+  .phone {
+    margin: 20px 20px 0;
+    background-image: url(./img/phone.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100%;
+    padding: 100px 16px;
+    box-sizing: border-box;
+    width: 365px;
+  }
+}
+
+//for pad
+//@media screen and (max-width: 900px) {
+//  .demos,.nav {
+//    display: none;
+//  }
+//
+//  .page {
+//    margin-right: 0;
+//  }
+//}
+
+//for phone
+@media screen and (max-width: 500px) {
+  .nav{
+    height: 100%;
+    overflow: scroll;
+    width: 200px;
+    float: left;
+    display: none;
+  }
+  .page{
+    height: 100%;
+    overflow: scroll;
+    margin-left: 200px;
+    margin-right: 400px;
+    display: none;
+  }
+
+
+  .demos {
+    float: left;
+    margin: 0 auto;
+    position: absolute;
+    left:0;
+    top:0;
+    .phone {
+      margin:0;
+      background: none;
+      background-size: 100%;
+      height: 100%;
+      padding:0;
+      padding-right: 80px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+  }
+}
+
