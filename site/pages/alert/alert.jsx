@@ -1,4 +1,4 @@
-import Markdown from '../../libs/markdown';
+import Markdown from '../../libs/markdown/markdown.jsx';
 
 
 export default class Alert extends Markdown {
