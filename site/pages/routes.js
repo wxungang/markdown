@@ -12,7 +12,6 @@ import {
 } from 'react-router-dom';
 
 
-
 //主入口文件
 import App from '../app.jsx';
 
@@ -21,6 +20,9 @@ import App from '../app.jsx';
 
 //pages (site 文档页面 无需采用 脚手架中的懒加载 方式！尽量 以代码可读性为主！)
 import Alert from './alert/alert.jsx';
+import Loading from './loading/loading.jsx';
+import List from './list/list.jsx';
+import Quickstart from './quickstart/quickstart.jsx';
 
 
 //懒加载方式
@@ -30,6 +32,9 @@ import Alert from './alert/alert.jsx';
 const routes = [
   {path: "/", text: "Alert", component: Alert},
   {path: "/alert", text: "Alert", component: Alert},
+  {path: "/loading", text: "Loading", component: Loading},
+  {path: "/list", text: "List", component: List},
+  {path: "/quickstart", text: "Quickstart", component: Quickstart},
 ];
 
 

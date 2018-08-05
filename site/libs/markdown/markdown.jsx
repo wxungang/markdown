@@ -35,11 +35,22 @@ export default class Markdown extends React.Component {
 
     if (typeof document === 'string') {
       this.components.clear();
-      let md = markdown();
+      let md = markdown({
+        highlight: function (str, lang) {
+          if (lang && highlight.getLanguage(lang)) {
+            try {
+              return highlight.highlight(lang, str).value;
+            } catch (__) {
+            }
+          }
+
+          return ''; // use external default escaping
+        }
+      });
       const html = md.render(document);
 
       return (
-        <div dangerouslySetInnerHTML={{
+        <div className={'md'} dangerouslySetInnerHTML={{
           __html: html
         }}/>
       )
