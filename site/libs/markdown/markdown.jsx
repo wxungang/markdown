@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import markdown from 'markdown-it';
-import highlight from 'highlight.js';
 
 export default class Markdown extends React.Component {
   constructor(props) {
@@ -9,6 +8,12 @@ export default class Markdown extends React.Component {
 
     this.components = new Map;
 
+  }
+
+  highlight = () => {
+    document.getElementById("page").querySelectorAll('code').forEach(function (block, i) {
+      hljs.highlightBlock(block);
+    });
   }
 
   componentDidMount() {
@@ -20,6 +25,7 @@ export default class Markdown extends React.Component {
   }
 
   renderDOM() {
+    this.highlight();
     for (const [id, component] of this.components) {
       const div = document.getElementById(id);
 
@@ -35,17 +41,7 @@ export default class Markdown extends React.Component {
     if (typeof document.md === 'string') {
       this.components.clear();
       let md = markdown({
-        langPrefix: 'language-',
-        highlight: function (str, lang) {
-          if (lang && highlight.getLanguage(lang)) {
-            try {
-              return highlight.highlight(lang, str).value;
-            } catch (__) {
-            }
-          }
-
-          return ''; // use external default escaping
-        }
+        langPrefix: 'language-'
       });
       const html = md.render(document.md);
 

@@ -12,6 +12,13 @@
 
 <body class="up-body" id="root">
 <!--不建议直接将页面路由挂载在body下面。本项目中已经将routes封装在app.jsx中div.react-content里面了。所以可以直接挂载！-->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  //不支持 less 高亮。凑合着用 css 语法
+  hljs.registerLanguage('less', function () {
+    return hljs.getLanguage('css');
+  });
+  hljs.initHighlightingOnLoad();</script>
 <% for (let item in htmlWebpackPlugin.options.scripts) { %>
 <script type="text/javascript" src="<%= htmlWebpackPlugin.options.scripts[item] %>"></script>
 <% } %>

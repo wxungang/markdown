@@ -16,12 +16,12 @@ export default class LoadingPage extends Markdown {
 
   }
 
-  componentDidMount() {
-    console.log(this.state);
-    console.log(Loading);
-    for (let prop in Loading.propsTypes) {
-      console.log(Loading.propsTypes[prop]);
-    }
-
-  }
+  // componentDidMount() {
+  //   console.log(this.state);
+  //   console.log(Loading);
+  //   for (let prop in Loading.propsTypes) {
+  //     console.log(Loading.propsTypes[prop]);
+  //   }
+  //
+  // }
 }
