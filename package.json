@@ -52,8 +52,6 @@
     "file-loader": "^1.1.11",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
-    "postcss-less": "^1.1.5",
-    "postcss-loader": "^2.1.5",
     "react-transform-hmr": "^1.0.4",
     "string-replace-loader": "^2.1.1",
     "style-loader": "^0.21.0",

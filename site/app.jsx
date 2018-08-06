@@ -112,7 +112,7 @@ export default class App extends React.Component {
       }}/>
       <div className="demos" id="demos">
         <div className="phone">
-          <iframe src="../demos/index.html"></iframe>
+          <iframe src="http://172.18.18.80:1111/cup_ui/dev/site/page.html"></iframe>
         </div>
       </div>
       <div className="page" id="page">

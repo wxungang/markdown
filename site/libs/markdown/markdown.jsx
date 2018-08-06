@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import markdown from 'markdown-it';
 import highlight from 'highlight.js';
 
-
 export default class Markdown extends React.Component {
   constructor(props) {
     super(props);
@@ -33,9 +32,10 @@ export default class Markdown extends React.Component {
   render() {
     const document = this.document(localStorage.getItem('DOCS_LANGUAGE') || 'react');
 
-    if (typeof document === 'string') {
+    if (typeof document.md === 'string') {
       this.components.clear();
       let md = markdown({
+        langPrefix: 'language-',
         highlight: function (str, lang) {
           if (lang && highlight.getLanguage(lang)) {
             try {
@@ -47,10 +47,10 @@ export default class Markdown extends React.Component {
           return ''; // use external default escaping
         }
       });
-      const html = md.render(document);
+      const html = md.render(document.md);
 
       return (
-        <div className={'md'} dangerouslySetInnerHTML={{
+        <div className={document.id || 'md'} dangerouslySetInnerHTML={{
           __html: html
         }}/>
       )
